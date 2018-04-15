@@ -11,22 +11,46 @@
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="9*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <RelativePanel Grid.Row="0" >
-                <TextBlock FontSize="48" x:Name="FileName" 
+                <TextBlock FontSize="36" x:Name="FileName" 
                            RelativePanel.AlignLeftWithPanel="True" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"
                            >FileName</TextBlock>
-                <Button x:Name="FileButton" Width="200" Height="80" 
+                <Button x:Name="FileButton" Width="200" Height="48" 
                         RelativePanel.AlignRightWithPanel="True" 
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Click="FileButton_Click"
-                        Content="打开文件"/>
+                        Content="Open Files"/>
             </RelativePanel>
-            <StackPanel Grid.Row="1" >
+            <RelativePanel Grid.Row="1">
+                <TextBlock FontSize="36" x:Name="OnlinePlay" 
+                           RelativePanel.AlignLeftWithPanel="True" 
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           >OnlinePlay</TextBlock>
+                <Button x:Name="OnlineButton" Width="200" Height="48"
+                        Margin="0,0,20,0"
+                        RelativePanel.LeftOf="CacheButton" 
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Click="OnlineButton_Click"
+                        Content="Play Online"/>
+                <Button x:Name="CacheButton" Width="200" Height="48" 
+                        RelativePanel.AlignRightWithPanel="True" 
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Click="CacheButton_Click"
+                        Content="Cache and Play"/>
+                <TextBox x:Name="URLBox" Width="400" Height="48"
+                         PlaceholderText="http://" FontSize="24"
+                         RelativePanel.LeftOf="OnlineButton"
+                         Margin="0,0,20,0"
+                         RelativePanel.AlignVerticalCenterWithPanel="True">
+                </TextBox>
+            </RelativePanel>
+            <StackPanel Grid.Row="2" >
                 <MediaElement x:Name="naiveMediaplayer"
                               
                               MaxWidth="1600"
